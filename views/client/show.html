@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Show client</title>
+</head>
+<body>
+  <h1>{{name}}</h1>
+    
+      <a href="/">homepage</a>
+      <a href="/client">All clients</a>
+    <form action="/client/{{client.id}}?_method=DELETE" method="POST">
+    <p>phone : {{client.phone}}</p>
+    <p>email : {{client.email}}</p>
+    <p>address : {{client.adress}}</p>
+    
+      <button type="submit">Delete account</button> 
+    </form>
+     <form action="/client/{{client.id}}/edit">
+        <button type="submit">Edit client</button>
+    </form> 
+</body>
+</html>

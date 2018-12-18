@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Show group</title>
+</head>
+<body>
+  <h1>{{group.name}}</h1>
+    
+      <a href="/">homepage</a>
+      <a href="/client">All groups</a>
+    <form action="/group/{{id}}?_method=DELETE" method="POST">
+   
+      group members: 
+          {{#members}}
+          <p value="{{id}}">{{name}}</p>
+          {{/members}}
+
+          
+      <button type="submit">Delete group</button>
+    </form>
+    <form action="/group/{{id}}/edit">
+        <button type="submit">Edit group</button>
+    </form>
+</body>
+</html>

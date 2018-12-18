@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Edit member</title>
+</head>
+<body>
+  <h1>Edit member</h1>
+  
+    <a href="/"> Homepage</a>
+    <a href="/member">All members</a>
+
+    <form action="/member/{{member.id}}?_method=PUT" method="POST">
+    <label for="name">
+     name: <input type="text" name="name" id="name" value="{{member.name}}"/>
+    </label>
+    <label for="email">
+        email: <input type="email" name="email" id="email" value="{{member.email}}"/>
+       </label>
+       <label>
+         <input type="text" name="user_id" value="{{member.user_id}}">
+       </label>
+       <!-- <label for="specialized">
+        specialized: <select name="specialized" id="specialized">
+            <option value="front end ">front end </option>
+            <option value="back end ">back end </option>
+            <option value="full stack ">full stack </option>
+            <option value="designer ">designer </option>
+            <option value="troubleshooting "> troubleshooting</option>
+            <option value="network "> network</option>
+          </select>
+         </label>
+    <label for="group_id">
+        group: <select name="group_id" id="group_id">
+          {{#groups}}
+          <option value="{{id}}">{{name}}</option>
+          {{/groups}}
+        </select>
+      </label> -->
+    <button type="submit">Submit Update</button>
+</form>
+
+</body>
+</html>

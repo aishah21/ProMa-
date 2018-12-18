@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Edit Client</title>
+</head>
+<body>
+  <h1>Edit Client</h1>
+  
+    <a href="/"> Homepage</a>
+    <a href="/client">All clients</a>
+
+    <form  action="/client/{{client.id}}?_method=PUT" method="POST" >
+    <label for="name">
+     name: <input type="text" name="name" id="task" value="{{name}}"/>
+    </label>
+    <label for="phone">
+    phone: <input type="text" name="phone" id="phone" value="{{phone}}"/>
+    <label for="email">
+    email: <input type="email" name="email" id="email" value="{{email}}"/>
+      </label>
+    <label for="email">
+    address: <input type="text" name="address" id="address" value="{{address}}"/>
+      </label>
+      
+    <button type="submit">Submit Update</button>
+</form>
+
+</body>
+</html>

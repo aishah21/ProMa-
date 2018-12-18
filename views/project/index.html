@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>All project</title>
+</head>
+<body>
+  <h1>All The projects</h1>
+  <div class="links">
+    <a href="/"> Homepage</a>
+    <a href="/project/new">Create a New project</a>
+  </div>
+
+    {{#projects}}
+    <a href="/project/{{id}}">
+      <h3>{{name}}</h3>
+    </a>
+    {{/projects}}
+ 
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "proma",
+  "version": "1.0.0",
+  "description": "project 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aisha",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "mustache-express": "^1.2.8",
+    "pg-promise": "^8.5.4"
+  }
+}

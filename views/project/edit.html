@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Edit project</title>
+</head>
+<body>
+  <h1>Edit project</h1>
+  
+    <a href="/"> Homepage</a>
+    <a href="/project">All projects</a>
+
+    <form  action="/project/{{id}}?_method=PUT" method="POST" >
+    <label for="name">
+     name: <input type="text" name="name" id="name" value="{{name}}"/>
+    </label>
+    <label for="descripition">
+        descripition: <input type="text" name="descripition" id="descripition" value="{{descripition}}"/>
+       </label>
+       <label for="note">
+          note: <input type="text" name="note" id="note" value="{{note}}"/>
+         </label>
+         <label for="cost">
+            cost: <input type="text" name="cost" id="cost" value="{{cost}}"/>
+           </label>
+           <label for="start_time">
+              start time: <input type="time" name="start_time" id="start_time" value="{{start_time}}"/>
+             </label>
+             <label for="end_time">
+            end time : <input type="time" name="end_time" id="end_time" value="{{end_time}}"/>
+           </label>
+           <label for="field">
+              field: <select name="field" id="field">
+                <option value=" general">general</option>
+                <option value="business ">business </option>
+                <option value="personal ">personal </option>
+                <option value="other ">other </option>
+              </select>
+             </label>
+       <label for="status">
+          status: <select name="status" id="status">
+            <option value=" reject">reject</option>
+            <option value="accept ">accept </option>
+            <option value="in progress ">in progress </option>
+            <option value="pending ">pending </option>
+            <option value="done "> done</option>
+          </select>
+         </label>
+    <label for="group_id">
+        group: <select name="group_id" id="group_id">
+          {{#groups}}
+          <option value="{{id}}">{{name}}</option>
+          {{/groups}}
+        </select>
+      </label>
+      <label for="client_id">
+          client: <select name="client_id" id="client_id">
+            {{#clients}}
+            <option value="{{id}}">{{name}}</option>
+            {{/clients}}
+          </select>
+        </label>
+    <button type="submit">Submit Update</button>
+</form>
+
+</body>
+</html>

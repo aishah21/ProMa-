@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Show project</title>
+</head>
+<body>
+  <h1>{{project.name}}</h1>
+    
+      <a href="/">homepage</a>
+      <a href="/project">All projects</a>
+    <form action="/project/{{id}}?_method=DELETE" method="POST">
+  <p>name : {{project.name}}</p>
+  <p>description: {{project.description}}</p>
+  <p> note: {{project.note}}</p>
+  <p>start time : {{project.start_time}}</p> 
+  <p>end time : {{project.end_time}}</p> 
+  <p>cost: {{project.cost}}</p>
+  <p>field: {{project.field}}</p>
+   <p id="group_id" name="group_id"> group : {{group.name }}</p>
+   <p id="client_id" name="client_id"> client : {{name }}</p>
+    <button type="submit">Delete group</button>
+    </form>
+    <form action="/project/{{id}}/edit">
+        <button type="submit">Edit project</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Edit group</title>
+</head>
+<body>
+  <h1>Edit group</h1>
+  
+    <a href="/"> Homepage</a>
+    <a href="/group">All groups</a>
+
+    <form  action="/group/{{id}}?_method=PUT" method="POST" >
+    <label for="name">
+     name: <input type="text" name="name" id="task" value="{{name}}"/>
+    </label>
+    <label for="member_id">
+        member: <select name="member_id" id="member_id">
+          {{#members}}
+          <option value="{{id}}">{{name}}</option>
+          {{/members}}
+        </select>
+      </label>
+    <button type="submit">Submit Update</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  <title>Show member</title>
+</head>
+<body>
+  <h1>{{member.name}}</h1>
+    
+      <a href="/">homepage</a>
+      <a href="/member">All members</a>
+    <form action="/member/{{member.id}}?_method=DELETE" method="POST">
+  <p>name : {{member.name}}</p>
+  <p>phone: {{member.phone}}</p>
+  <p> email: {{member.email}}</p>
+  <p>specialized : {{member.spechlized}}</p> 
+  group:
+  {{#groups}}
+          <p value="{{id}}">{{name}}</p>
+  {{/groups}}
+   
+  
+   
+    <button type="submit">Delete member</button>
+    </form>
+    <!-- <form action="/member/{{member.id}}/edit" method="get">
+        <button type="submit">Edit member</button>
+    </form> -->
+    <a href="/member/{{member.id}}/edit">Edit</a>
+</body>
+</html>
