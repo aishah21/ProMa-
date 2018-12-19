@@ -14,9 +14,12 @@ project.getAll = function (req, res, next) {
       })
   }
   project.find = function (req, res, next) {
+    console.log('\n\n\n\n\n\n finding a project ' ,req.params.id );
+
     var id = req.params.id;
-    db.oneOrNone("SELECT * FROM projects WHERE id = $1;", [id])
+    db.oneOrNone('SELECT * FROM projects WHERE id=$1;', [id])
       .then(function(result){
+        console.log(result);
         res.locals.project = result;
         next();
       })
@@ -109,5 +112,21 @@ db.one(
             next();
           })
       }
+
+      project.findByClient = function (req, res, next) {
+        db.manyOrNone("SELECT projects.name from projects , clients where clients.id = $1 AND projects.client_id =clients.id;", [req.params.id])
+          .then(function (result) {
+            res.locals.projects = result;
+            next();
+          })
+          .catch(function (error) {
+            console.log(error);
+            next();
+          });
+      }
+
+
+
+
 module.exports = project;
 

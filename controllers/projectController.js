@@ -9,7 +9,7 @@ var client = require('../models/clients');
 
 router.get('/new', project.getAll, renderNew);
 router.get('/:id/edit', project.find, task.getAll,client.getAll,project.getAll, renderEdit);
-router.get('/:id', project.find, task.findByProject ,client.findByProject  , renderShow);
+router.get('/:id', project.find, group.findByProject , client.findByProject ,task.getAll ,  renderShow);
 router.get('/', project.getAll, renderIndex);
 
 router.post('/', project.create, redirectShow);
@@ -30,7 +30,8 @@ function renderShow(req,res){
     groups: res.locals.groups , 
     clients: res.locals.clients
   }
-  res.render('./project/show', mustacheVariables);
+  // res.send('sajndjasnj');
+  res.render('./project/show',mustacheVariables);
 }
 function renderNew(req, res) {
     var mustacheVariables = {
@@ -42,7 +43,7 @@ function renderNew(req, res) {
   function renderEdit(req, res) {
     var mustacheVariables = {
         project: res.locals.project,
-        tasks: res.locals.tasks ,
+        // tasks: res.locals.tasks ,
         groups: res.locals.groups , 
         clients: res.locals.clients
     }

@@ -6,8 +6,8 @@ var project = require('../models/projects');
 var group = require('../models/group');
 var member = require('../models/members');
 
-router.get('/new', task.getAll, renderNew);
-router.get('/:id/edit', task.find, project.getAll,group.getAll,member.getAll, renderEdit);
+router.get('/new', project.getAll , member.getAll, renderNew);
+// router.get('/:id/edit', task.find, project.getAll,group.getAll,member.getAll, renderEdit);
 router.get('/:id', task.find, project.findByTask  , member.findByTask, renderShow);
 router.get('/', task.getAll, renderIndex);
 
@@ -25,17 +25,18 @@ function renderIndex(req, res){
 
 function renderShow(req,res){
   var mustacheVariables = {
-    task: res.locals.task,
     projects: res.locals.projects ,
-    members:res.locals.members
-   
-    
+    members:res.locals.members , 
+    task:res.locals.task
+
   }
   res.render('./task/show', mustacheVariables);
 }
 function renderNew(req, res) {
     var mustacheVariables = {
-      task: res.locals.task
+      task: res.locals.task,
+      projects: res.locals.projects ,
+    members:res.locals.members
     }
     res.render('./task/new', mustacheVariables);
   }
@@ -55,7 +56,7 @@ function renderNew(req, res) {
   }
   
   function redirectShow(req, res) {
-    res.redirect(`/task/${res.locals.taskId}`);
+    res.redirect(`/task/${res.locals.task_id}`);
   }
   
 

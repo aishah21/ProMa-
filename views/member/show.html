@@ -4,31 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  
+	<link rel='stylesheet' type='text/css' href='/static/styles/bootstrap.css'>
+	<link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
   <title>Show member</title>
 </head>
 <body>
-  <h1>{{member.name}}</h1>
-    
-      <a href="/">homepage</a>
-      <a href="/member">All members</a>
-    <form action="/member/{{member.id}}?_method=DELETE" method="POST">
+    <header>
+        <div class="container">
+          <div class="row">
+              <div class="col-3">
+                  <ul class="nav navbar-nav">
+            
+                    <li><a href="/admin"> Homepage</a></li>
+                    <!-- <li><a href="/member/new">Create a New member</a></li> -->
+                  </ul>
+                </div>
+                <div class="col-9">
+                    <h1 >{{member.name}}</h1>
+                    <div class="col-4">
+                      <div class="card" style="text-align:center ">
+    <!-- <form action="/member/{{member.id}}?_method=DELETE" method="POST"> -->
   <p>name : {{member.name}}</p>
   <p>phone: {{member.phone}}</p>
   <p> email: {{member.email}}</p>
   <p>specialized : {{member.spechlized}}</p> 
-  group:
+  
   {{#groups}}
-          <p value="{{id}}">{{name}}</p>
+          <p value="{{id}}">group: {{name}}</p>
   {{/groups}}
    
   
    
-    <button type="submit">Delete member</button>
-    </form>
+    <!-- <button type="submit">Delete member</button>
+    </form> -->
     <!-- <form action="/member/{{member.id}}/edit" method="get">
         <button type="submit">Edit member</button>
     </form> -->
     <a href="/member/{{member.id}}/edit">Edit</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+</header>
 </body>
 </html>

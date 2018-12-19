@@ -4,27 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+ 
+	<link rel='stylesheet' type='text/css' href='/static/styles/bootstrap.css'>
+	<link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
   <title>New task</title>
 </head>
 <body>
   <h1>Create A task</h1>
+  <div class="col-4">
+      <div class="card" style="text-align:center ">
   <form action="/task" method="POST">
     <label for="name">
-        name: <input type="text" name="name" id="name" value="{{name}}"/>
+        name: <input type="text" name="name" id="name" />
        </label>
        <label for="descripition">
-           descripition: <input type="text" name="descripition" id="descripition" value="{{descripition}}"/>
+           descripition: <input type="text" name="descripition" id="descripition" />
           </label>
           <label for="note">
-             note: <input type="text" name="note" id="note" value="{{note}}"/>
+             note: <input type="text" name="note" id="note" />
             </label>
       
               <label for="start_time">
-                 start time: <input type="time" name="start_time" id="start_time" value="{{start_time}}"/>
+                 start time: <input type="time" name="start_time" id="start_time" />
                 </label>
                 <label for="end_time">
-               end time : <input type="time" name="end_time" id="end_time" value="{{end_time}}"/>
+               end time : <input type="time" name="end_time" id="end_time" />
               </label>
              
           <label for="status">
@@ -37,21 +41,22 @@
             </label>
        <label for="project_id">
            project: <select name="project_id" id="project_id">
-             {{#project}}
+             {{#projects}}
              <option value="{{id}}">{{name}}</option>
-             {{/project}}
+             {{/projects}}
            </select>
          </label>
          <label for="member_id">
              member: <select name="member_id" id="member_id">
-               {{#member}}
+               {{#members}}
                <option value="{{id}}">{{name}}</option>
-               {{/member}}
+               {{/members}}
              </select>
            </label>
-      <button type="submit">Create task</button>
+      <button type="submit" class="btn btn-info">Create task</button>
     </label>
    
   </form>
+</div></div>
 </body>
 </html>

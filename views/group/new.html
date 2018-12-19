@@ -4,25 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  
+	<link rel='stylesheet' type='text/css' href='/static/styles/bootstrap.css'>
+	<link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
   <title>New group</title>
 </head>
 <body>
   <h1>Create A group</h1>
+  <div class="col-4">
+      <div class="card" style="text-align:center ">
   <form action="/group" method="POST">
     <label for="name">
-       Name: <input type="text" id="name" name="name">
+       Name: <input type="text" id="name" name="name" class="form-group">
     </label>
-    < <label for="member_id">
-        member: <select name="member_id" id="member_id">
+    <label for="member_id">
+        member: <select name="member_id" id="member_id" class="form-group">
+
           {{#members}}
           <option value="{{id}}">{{name}}</option>
           {{/members}}
         </select>
       </label>
-      <button type="submit">Create group</button>
+      <button type="submit" class="btn btn-info ">Create group</button>
     </label>
    
   </form>
+</div>
+</div>
 </body>
 </html>

@@ -10,7 +10,6 @@ router.get('/new', member.getAll ,group.getAll, renderNew);
 router.get('/:id', member.find, group.findByMember , renderShow);
 router.get('/:id/edit', member.find,group.getAll, renderEdit);
 
-
 router.post('/', member.create, redirectShow);
 router.put('/:id', member.update, redirectIndex);
 router.delete('/:id', member.delete, redirectIndex);

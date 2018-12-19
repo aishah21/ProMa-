@@ -23,7 +23,7 @@ var methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 
-var session = require('express-session')
+var session = require('express-session');
 app.use(session({
   secret: 'keyboard cat',
   resave: true,
@@ -42,7 +42,7 @@ app.use('/member' , memberController);
 var projectController = require('./controllers/projectController')
 app.use('/project' , projectController);
 
-var taskController = require('./controllers/taskController')
+var taskController = require('./controllers/taskController');
 app.use('/task' , taskController);
 
 var usersController = require('./controllers/usersController')
@@ -53,8 +53,15 @@ app.use('/login', sessionsController);
 
 var sessionsController = require('./controllers/sessionsController');
 
+app.get('/', function(req,res){
+  res.render('./home');
+});
 
-app.get('/',function(req,res){
+app.get('/admin',function(req,res){
+  res.render('./index');
+});
+
+app.get('/login',function(req,res){
   res.render('./index');
 });
 

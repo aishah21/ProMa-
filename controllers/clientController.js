@@ -3,10 +3,11 @@ var router = express.Router();
 
 var client = require('../models/clients');
 var user = require('../models/users');
+var project = require('../models/projects');
 
 router.get('/new', user.getAll, renderNew);
 router.get('/:id/edit', client.find, renderEdit);
-router.get('/:id', client.find, renderShow);
+router.get('/:id', client.find , project.findByClient, renderShow);
 router.get('/', client.getAll, renderIndex);
 
 router.post('/', client.create, redirectShow);
@@ -22,7 +23,8 @@ function renderIndex(req, res){
 
 function renderShow(req, res) {
   var mustacheVariables = {
-    client: res.locals.client
+    client: res.locals.client ,
+    projects: res.locals.projects
   }
   res.render('./client/show', mustacheVariables);
 }

@@ -11,8 +11,8 @@ member.getAll = function (req, res, next) {
       .catch(function(error){ 
         console.log(error); 
         next(); 
-      })
-  }
+      });
+  };
   member.find = function (req, res, next) {
     var id = req.params.id;
     db.oneOrNone("SELECT * FROM members WHERE id = $1;", [id])
@@ -23,33 +23,45 @@ member.getAll = function (req, res, next) {
       .catch(function(error){
         console.log(error);
         next();
-      })
-    }
+      });
+    };
 
+      member.addMemeberToGroup = function (req , res , next){
+          console.log("creating a member"); 
+          console.log("\n\n\n\n\n\n\n\n member create",req.body);
+
+          db.none('update members SET group_id=$1 WHERE id=$2;', [ res.locals.group_id  ,  parseInt(req.body.member_id)]) 
+            .then(function () {
+                next();
+            })
+            .catch(function (error) {
+              console.log(error);
+              next();
+            });
+      
+      };
     member.create = function(req, res, next){
 
-      console.log("body",req.body);
+      console.log("\n\n\n\n\n\n\n\nmember create",req.body);
         var memberData = {
             name: req.body.name ,
             email:req.body.descripition ,
             specialized : req.body.specialized
             // groupId : req.body.group_id
         };
-        db.one(
-          `INSERT INTO members
-          (name, email, specialized)
-          VALUES ($1 ,$2 ,$3) RETURNING id;`,
+        db.one( `INSERT INTO members (name, email, specialized) VALUES ($1 ,$2 ,$3) RETURNING id;`,
           [memberData.name , memberData.email , memberData.specialized])
           .then(function (result) {
             console.log(result)
-            res.locals.member_id = result.id;
+            res.locals.memberId = result.id;
             next();
           })
           .catch(function (error) {
             console.log(error);
             next();
           });
-      }
+      };
+
       member.delete = function(req, res, next){
         db.none('DELETE FROM members WHERE id=$1;', [req.params.id])
           .then(function(){
@@ -59,8 +71,8 @@ member.getAll = function (req, res, next) {
           .catch(function(error){
             console.log(error);
             next();
-          })
-      }
+          });
+      };
 
     //   member.update = function(req, res, next){
 
@@ -111,7 +123,7 @@ member.getAll = function (req, res, next) {
         });
     }
       member.findByGroup= function (req, res, next) {
-        db.manyOrNone("SELECT * FROM members WHERE groub_id=$1;", [req.params.id])
+        db.manyOrNone("SELECT * FROM members WHERE group_id=$1;", [req.params.id])
           .then(function (result) {
             res.locals.members = result;
             next();

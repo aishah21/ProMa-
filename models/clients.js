@@ -87,18 +87,21 @@ client.getAll = function (req, res, next) {
           .catch(function (error) {
             console.log(error);
             next();
-          })
+          });
       }
       
       client.findByProject = function (req, res, next) {
-        db.manyOrNone("SELECT * FROM clients WHERE project_id=$1;", [req.params.id])
+
+        console.log('\n\n\n\n\n\n finding a client by project ');
+        db.manyOrNone("SELECT clients.name from clients , projects where projects.client_id=$1 and clients.id= projects.client_id;", [req.params.id])
           .then(function (result) {
+            console.log("result" , result );
             res.locals.clients = result;
             next();
           })
           .catch(function (error) {
             console.log(error);
             next();
-          })
+          });
       }
 module.exports = client;

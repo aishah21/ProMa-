@@ -17,7 +17,7 @@ CREATE TABLE clients (
     adress varchar  , 
     email varchar NOT NULL UNIQUE , 
     user_id int not null,
-    foreign key(user_id) references users 
+    foreign key(user_id) references users on delete cascade
 );
 
 CREATE TABLE groups(
@@ -31,10 +31,11 @@ CREATE TABLE members  (
     spechlized varchar ,
     phone varchar(10) NOT NULL UNIQUE , 
     email varchar NOT NULL UNIQUE,
+
     user_id int not null ,
     group_id int not null,
-    foreign key(user_id) references users , 
-    foreign key(group_id) references groups     
+    foreign key(user_id) references users on delete cascade, 
+    foreign key(group_id) references groups on delete cascade    
 );
 
 
@@ -50,8 +51,8 @@ CREATE TABLE projects  (
     status varchar ,
     client_id int not null ,
     group_id int not null,
-   foreign key(client_id) references clients ,
-    foreign key(group_id) references groups 
+   foreign key(client_id) references clients on delete cascade,
+    foreign key(group_id) references groups on delete cascade 
 );
 
 CREATE TABLE tasks  (
@@ -64,8 +65,8 @@ CREATE TABLE tasks  (
     status varchar , 
     project_id int not null ,
     member_id int not null,
-    foreign key(project_id) references projects , 
-   foreign key(member_id) references members 
+    foreign key(project_id) references projects on delete cascade, 
+   foreign key(member_id) references members on delete cascade
 );
 
 INSERT INTO users (username , password , position , email) values
@@ -92,3 +93,4 @@ INSERT INTO groups (name ) values
  INSERT INTO tasks (name , description ,  note , start_time , end_time , status , project_id , member_id) values
  ('check backend' ,'all js pages ', 'must be fast as you can ' , '20:20' , '3:30','active' , 1 , 1 ),
  ('crate views' ,'all html pages ', 'must be fast as you can ' , '20:20' , '3:30', 'active' , 2 , 2);
+

@@ -1,25 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<title></title>
+	<meta charset="utf-8">
+	
+	<link rel='stylesheet' type='text/css' href='/static/styles/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='/static/styles/style.css'>
 </head>
 <body>
-    <h1>landpage </h1>
-    <a href="/group">All groups</a>
-    <br>
-    <a href="/project">All projects</a>
-    <br>
-    <a href="/task">All tasks</a>
-    <br>
-    <a href="/client">All clients</a>
-    <br>
-    <a href="/member">All members</a>
-    <br>
-    <a href="/users">All users</a>
-    
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+		 <a class="navbar-brand" href="#"><img src="static/favicon.png"></a>
+		 <ul class="navbar-nav ml-auto">
+		 	<li><a href="/">Logout</a></li>
+		 </ul>
+	</nav>
+</header>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<p>Admin page  </p>
+				</div>
+				<div class="col-4">
+					<div class="card">
+						<a href="">
+							<div class="card-header">
+								Groups
+							</div>
+							<div class="card-body">
+								<a href="/group"> Go</a>
+							</div>
+						</a>
+					</div>
+                   </div>
+					<div class="col-4">
+					<div class="card">
+						<a href="">
+							<div class="card-header">
+								Projects
+							</div>
+							<div class="card-body">
+								<a href="/project">Go</a>
+							</div>
+						</a>
+					</div>
+                </div>
+                
+                <div class="col-4">
+					<div class="card">
+						<a href="">
+							<div class="card-header">
+								Tasks
+							</div>
+							<div class="card-body">
+								<a href="/task">Go</a>
+							</div>
+						</a>
+					</div>
+				</div>
 
+
+				<div class="col-4">
+					<div class="card">
+						<a href="">
+							<div class="card-header">
+								Clients
+							</div>
+							<div class="card-body">
+								<a href="/client">Go</a>
+							</div>
+						</a>
+					</div>
+				</div>
+                <div class="col-4">
+					<div class="card">
+						<a href="">
+							<div class="card-header">
+								Members
+							</div>
+							<div class="card-body">
+								<a href="/member">Go</a>
+							</div>
+						</a>
+					</div>
+                </div>
+                <div class="col-4">
+					<div class="card">
+						<a href="">
+							<div class="card-header">
+								Users
+							</div>
+							<div class="card-body">
+								<a href="/users">Go</a>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</section>
 </body>
 </html>

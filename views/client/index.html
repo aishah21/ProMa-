@@ -4,21 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
+  
+	<link rel='stylesheet' type='text/css' href='/static/styles/bootstrap.css'>
+	<link rel='stylesheet' type='text/css' href='/static/styles/styles.css'>
   <title>All clients</title>
 </head>
 <body>
-  <h1>All The clients</h1>
-  <div class="links">
-    <a href="/"> Homepage</a>
-    <a href="/client/new">Create a New client</a>
-  </div>
-
-    {{#clients}}
-    <a href="/client/{{id}}">
-      <h3>{{name}}</h3>
-    </a>
-    {{/clients}}
+    <header>
+        <div class="container">
+          <div class="row">
+              <div class="col-3">
+                  <ul class="nav navbar-nav">
+            
+                    <li><a href="/admin"> Homepage</a></li>
+                    <!-- <li><a href="/client/new">Create a New client</a></li> -->
+                  </ul>
+                </div>
+                <div class="col-9">
+                    <h1>All The clients</h1>
+                    <div class="col-4">
+                      <div class="card" style="text-align:center ">
+                          {{#clients}}
+                          <a href="/client/{{id}}">
+                            <h3>{{name}}</h3>
+                          </a>
+                          {{/clients}}
+                       
+                      </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+        
+        </header>
+     
  
 </body>
 </html>

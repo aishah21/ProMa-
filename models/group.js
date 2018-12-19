@@ -29,7 +29,7 @@ group.getAll = function (req, res, next) {
 
     group.create = function(req, res, next){
 
-      console.log("body",req.body)
+      console.log("body",req.body);
         var groupData = {
             name: req.body.name
         }
@@ -39,7 +39,7 @@ group.getAll = function (req, res, next) {
           VALUES ($1) RETURNING id;`,
           [groupData.name])
           .then(function (result) {
-            console.log(result)
+            console.log(result);
             res.locals.group_id = result.id;
             next();
           })
@@ -80,6 +80,19 @@ group.getAll = function (req, res, next) {
       }
       group.findByMember= function (req, res, next) {
         db.manyOrNone("SELECT groups.name from groups , members where members.user_id =$1 and groups.id= members.group_id;", [req.params.id])
+          .then(function (result) {
+            res.locals.groups = result;
+            next();
+          })
+          .catch(function (error) {
+            console.log(error);
+            next();
+          });
+      }
+      group.findByProject= function (req, res, next) {
+        console.log('\n\n\n\n\n\n finding a group for the project ');
+
+        db.manyOrNone("SELECT groups.name from groups , projects where projects.group_id=$1 and groups.id= projects.group_id;", [req.params.id])
           .then(function (result) {
             res.locals.groups = result;
             next();
