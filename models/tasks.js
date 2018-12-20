@@ -14,10 +14,9 @@ task.getAll = function (req, res, next) {
       })
   }
   task.find = function (req, res, next) {
-    console
+   
     var id = req.params.id;
-    
-    
+ 
     db.oneOrNone("SELECT * FROM tasks WHERE id = $1;", [id])
       .then(function(result){
         res.locals.task = result;

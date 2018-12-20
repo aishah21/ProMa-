@@ -1,7 +1,3 @@
-DROP DATABASE IF EXISTS proma_db;
-CREATE DATABASE proma_db;
-\c proma_db 
-
 
 CREATE TABLE users (
     id serial primary key,

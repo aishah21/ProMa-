@@ -56,7 +56,7 @@ function renderNew(req, res) {
   }
   
   function redirectShow(req, res) {
-    res.redirect(`/task/${res.locals.task_id}`);
+    res.redirect(`/task/${res.locals.taskId}`);
   }
   
 

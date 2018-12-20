@@ -8,5 +8,5 @@ var config = {
     user : 'aishahalmaghrbi'
 }
 
-var connection = pginstance(config);
+var connection = pginstance(process.env.DATABASE_URL ||config);
 module.exports = connection ; 

@@ -4,8 +4,10 @@
   "description": "project 2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "start" : "node index.js"
+  }
+  ,
   "author": "aisha",
   "license": "ISC",
   "dependencies": {
@@ -18,4 +20,5 @@
     "mustache-express": "^1.2.8",
     "pg-promise": "^8.5.4"
   }
+  "engines": {"node": "11.3.0"  }
 }
