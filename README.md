@@ -1,6 +1,7 @@
-# ProMa-
+# ProMa
+![favicon](https://user-images.githubusercontent.com/30210097/50266927-9c632880-0436-11e9-9c65-ca57dca21f21.png) Project Management App
 
-Project Management App
+
 
 ### technologies used:
 * CSS
