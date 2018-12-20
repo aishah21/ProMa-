@@ -10,7 +10,7 @@
 * sql
 * npm
 ### User Stories: 
-where client can order a project and the project admin assign the project tasks to member 
+where client can order a project and the project admin assign the project tasks to member  ; 
 member can mange her task status 
 #### Homepage: 
 <img width="815" alt="screen shot 2018-12-20 at 1 39 55 am" src="https://user-images.githubusercontent.com/30210097/50252940-b2062d00-03f9-11e9-82c6-c84ec89ea6f1.png">
